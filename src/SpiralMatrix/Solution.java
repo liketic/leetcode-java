@@ -55,16 +55,4 @@ public class Solution {
 
         return rv;
     }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[][] mat = new int[1][3];
-        mat[0][0] = 8;
-        mat[0][1] = 7;
-        mat[0][2] = 6;
-
-        for (int x : solution.spiralOrder(mat)) {
-            System.out.println(x);
-        }
-    }
 }
