@@ -1,14 +1,14 @@
-package BinaryTreeZigzagLevelOrderTraversal;
+package BinaryTreeLevelOrderTraversal;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 /**
- * Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left
- * to right, then right to left for the next level and alternate between).
+ * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to
+ * right, level by level).
+ *
  *
  * For example: Given binary tree [3,9,20,null,null,15,7],
  * <pre>
@@ -22,7 +22,7 @@ import java.util.Queue;
  * <pre>
  * [
  * [3],
- * [20,9],
+ * [9,20],
  * [15,7]
  * ]
  * </pre>
@@ -38,18 +38,14 @@ class TreeNode {
 }
 
 public class Solution {
-    
 
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+    private List<List<Integer>> levelOrderWithQueue(TreeNode root) {
         List<List<Integer>> vals = new ArrayList<>();
 
         if (root == null) return vals;
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-
-        // A flag for direction
-        boolean fromLeft = true;
 
         while (!queue.isEmpty()) {
             List<Integer> valsOnCurrentLevel = new ArrayList<>();
@@ -64,12 +60,45 @@ public class Solution {
                     queue.add(node.right);
                 }
             }
-            if (!fromLeft) {
-                Collections.reverse(valsOnCurrentLevel);
-            }
-            fromLeft = !fromLeft;
             vals.add(valsOnCurrentLevel);
         }
         return vals;
+    }
+
+    private List<List<Integer>> levelOrderWithoutQueue(TreeNode root) {
+        List<List<Integer>> vals = new ArrayList<>();
+
+        if (root == null) return vals;
+        int size = 1;
+
+        TreeNode[] nodes = new TreeNode[1];
+        nodes[0] = root;
+
+        while (true) {
+            List<Integer> valsOnCurrentLevel = new ArrayList<>();
+
+            TreeNode[] newNodes = new TreeNode[size * 2];
+            int k = 0;
+
+            for (int i = 0; i < size; i++) {
+                valsOnCurrentLevel.add(nodes[i].val);
+                if (nodes[i].left != null) {
+                    newNodes[k++] = nodes[i].left;
+                }
+                if (nodes[i].right != null) {
+                    newNodes[k++] = nodes[i].right;
+                }
+            }
+            vals.add(valsOnCurrentLevel);
+            if (k == 0) break;
+            size = k;
+            nodes = newNodes;
+        }
+        return vals;
+    }
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+//        return levelOrderWithQueue(root);
+        return levelOrderWithoutQueue(root);
     }
 }
