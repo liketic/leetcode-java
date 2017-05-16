@@ -28,7 +28,7 @@ public class Solution {
 
 
     private int maxDepthIteratively(TreeNode root) {
-        // This solution is much slower
+        // This Solution is much slower
         if (root == null) return 0;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);

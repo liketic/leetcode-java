@@ -38,7 +38,7 @@ public class Solution {
 
         if (ptr2 == null) return null;
 
-        // solution 1: check all nodes from head
+        // Solution 1: check all nodes from head
 //        ptr1 = head;
 //        while (ptr1 != null) {
 //            if (isOnCycle(ptr1, ptr2)) return ptr1;

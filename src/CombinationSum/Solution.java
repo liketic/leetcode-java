@@ -13,9 +13,9 @@ import java.util.List;
  * Note:
  * <pre>
  * All numbers (including target) will be positive integers.
- * The solution set must not contain duplicate combinations.
+ * The Solution set must not contain duplicate combinations.
  * For example, given candidate set [2, 3, 6, 7] and target 7,
- * A solution set is:
+ * A Solution set is:
  * [
  * [7],
  * [2, 2, 3]
