@@ -26,16 +26,16 @@ import java.util.stream.Collectors;
  */
 public class FileSystem {
 
+    // Store file content
     private Map<String, String> file2Content;
-    private Map<String, List<String>> folderItems;
-    private List<String> folders;
+    // Store all file and dirs for each dir
+    private Map<String, List<String>> folder2Items;
 
     public FileSystem() {
         file2Content = new HashMap<>();
-        folderItems = new HashMap<>();
-        folderItems.put("/", new ArrayList<>());
-        folders = new ArrayList<>();
-        folders.add("/");
+        folder2Items = new HashMap<>();
+        // The root dir 
+        folder2Items.put("/", new ArrayList<>());
     }
 
     private String getName(String path, String dirName) {
@@ -48,11 +48,11 @@ public class FileSystem {
     }
 
     public List<String> ls(String path) {
-        if (!folders.contains(path)) {
+        if (!folder2Items.containsKey(path)) {
             int l = path.lastIndexOf('/');
             return Collections.singletonList(path.substring(l + 1));
         }
-        List<String> items = folderItems.get(path);
+        List<String> items = folder2Items.get(path);
         if (items == null) {
             return Collections.emptyList();
         }
@@ -65,14 +65,11 @@ public class FileSystem {
         if (path.equals("/")) {
             return;
         }
-        if (!folderItems.containsKey(path)) {
-            folderItems.put(path, new ArrayList<>());
-        }
-        if (!folders.contains(path)) {
-            folders.add(path);
+        if (!folder2Items.containsKey(path)) {
+            folder2Items.put(path, new ArrayList<>());
         }
         String dir = getDir(path);
-        List<String> items = folderItems.computeIfAbsent(dir, key -> new ArrayList<>());
+        List<String> items = folder2Items.computeIfAbsent(dir, key -> new ArrayList<>());
         if (!items.contains(path)) {
             items.add(path);
         }
@@ -87,7 +84,7 @@ public class FileSystem {
     public void addContentToFile(String filePath, String content) {
         String dir = getDir(filePath);
         mkdir(dir);
-        List<String> items = folderItems.computeIfAbsent(dir, key -> new ArrayList<>());
+        List<String> items = folder2Items.computeIfAbsent(dir, key -> new ArrayList<>());
         if (!items.contains(filePath)) {
             items.add(filePath);
         }

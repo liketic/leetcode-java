@@ -81,7 +81,7 @@ public class Solution {
                 if (!isInMatrix(x, y, m, n)) {
                     continue;
                 }
-                if (r[x][y] > s) {
+                if (r[x][y] == Integer.MAX_VALUE) {
                     r[x][y] = s;
                     queue.add(new Node(x, y, s));
                 }
