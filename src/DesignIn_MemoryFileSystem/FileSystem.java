@@ -49,11 +49,13 @@ public class FileSystem {
 
     public List<String> ls(String path) {
         if (!folder2Items.containsKey(path)) {
+            // Not a dir
             int l = path.lastIndexOf('/');
             return Collections.singletonList(path.substring(l + 1));
         }
         List<String> items = folder2Items.get(path);
         if (items == null) {
+            // should not happen
             return Collections.emptyList();
         }
         List<String> files = items.stream().map(e -> getName(e, path)).collect(Collectors.toList());
@@ -76,7 +78,7 @@ public class FileSystem {
         mkdir(dir);
     }
 
-    public String getDir(String path) {
+    private String getDir(String path) {
         int r = path.lastIndexOf('/');
         return r > 0 ? path.substring(0, r) : "/";
     }
