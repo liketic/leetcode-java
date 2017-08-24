@@ -9,27 +9,28 @@ package ImageSmoother;
 class Solution {
 
     public int[][] imageSmoother(int[][] M) {
-        int n = M.length;
-        int m = M[0].length;
-        int[][] x = new int[n][m];
+        int rowNums = M.length;
+        int colNums = M[0].length;
+        int[][] matrix = new int[rowNums][colNums];
 
         int[] dx = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
         int[] dy = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                int s = 0;
-                int c = 0;
+        for (int i = 0; i < rowNums; i++) {
+            for (int j = 0; j < colNums; j++) {
+                int sum = 0;
+                int count = 0;
+
                 for (int k = 0; k < 9; k++) {
                     int px = i + dx[k], py = j + dy[k];
-                    if (px >= 0 && px < n && py >= 0 && py < m) {
-                        s += M[px][py];
-                        c++;
+                    if (px >= 0 && px < rowNums && py >= 0 && py < colNums) {
+                        sum += M[px][py];
+                        count++;
                     }
                 }
-                x[i][j] = s / c;
+                matrix[i][j] = sum / count;
             }
         }
-        return x;
+        return matrix;
     }
 }
