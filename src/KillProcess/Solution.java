@@ -42,22 +42,21 @@ public class Solution {
 
 
     private void populateAll(Map<Integer, List<Integer>> childMap, Integer pid, List<Integer> rv) {
-        List<Integer> childs = childMap.get(pid);
-        if (childs != null) {
-            rv.addAll(childs);
-            childs.forEach(e -> populateAll(childMap, e, rv));
+        List<Integer> children = childMap.get(pid);
+        if (children != null) {
+            rv.addAll(children);
+            children.forEach(e -> populateAll(childMap, e, rv));
         }
     }
 
     public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
         Map<Integer, List<Integer>> childMap = new HashMap<>();
-        for (int i = 0; i < pid.size(); i++) {
-            List<Integer> childs = childMap.computeIfAbsent(ppid.get(i), k -> new ArrayList<>());
-            childs.add(pid.get(i));
+        for (int i = 0, l = pid.size(); i < l; i++) {
+            childMap.computeIfAbsent(ppid.get(i), k -> new ArrayList<>()).add(pid.get(i));
         }
         List<Integer> toKill = new ArrayList<>();
         toKill.add(kill);
-        
+
         populateAll(childMap, kill, toKill);
         return toKill;
     }

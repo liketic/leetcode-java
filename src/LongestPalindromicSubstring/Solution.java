@@ -10,7 +10,7 @@ public class Solution {
             return s;
         }
         int n = s.length();
-        
+
         // If there is no any palindromic substring, return the first character.
         int start = 0, end = 0;
 
@@ -41,10 +41,5 @@ public class Solution {
 
         return s.substring(start, end + 1);
     }
-    
-    
-    public static void main(String args[]) {
-        String s = "abc";
-        System.out.println(new Solution().longestPalindrome(s));
-    }
+
 }

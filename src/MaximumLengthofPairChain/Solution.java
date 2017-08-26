@@ -25,14 +25,14 @@ class Solution {
         int n = pairs.length;
         if (n == 0) return 0;
 
-        List<Pair> list = new ArrayList<>(n);
+        List<Pair> asList = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
             Pair p = new Pair();
             p.l = pairs[i][0];
             p.r = pairs[i][1];
-            list.add(p);
+            asList.add(p);
         }
-        list.sort((o1, o2) -> {
+        asList.sort((o1, o2) -> {
             if (o1.r == o2.r)
                 return o1.l < o2.l ? -1 : (o1.l == o2.l ? 0 : 1);
             return o1.r < o2.r ? -1 : 1;
@@ -42,7 +42,7 @@ class Solution {
         int r = 0;
 
         for (int i = 0; i < n; i++) {
-            Pair cur = list.get(i);
+            Pair cur = asList.get(i);
             int s = 1;
 
             for (Map.Entry<Integer, Integer> entry : ans.entrySet()) {
