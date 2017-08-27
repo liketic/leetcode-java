@@ -13,16 +13,16 @@ class Solution {
         int n = nums.length;
         if (n == 0) return 0;
 
-        Map<Integer, Integer> sum2Indexs = new HashMap<>();
-        int[] sum = new int[n];
+        Map<Integer, Integer> countOfSum = new HashMap<>();
         int ans = 0;
-        sum2Indexs.put(0, 1);
+        int sum = 0;
+        countOfSum.put(sum, 1);
 
         for (int i = 0; i < n; i++) {
-            sum[i] = i == 0 ? nums[i] : nums[i] + sum[i - 1];
-            int offset = sum[i] - k;
-            ans += sum2Indexs.getOrDefault(offset, 0);
-            sum2Indexs.put(sum[i], sum2Indexs.getOrDefault(sum[i], 0) + 1);
+            sum += nums[i];
+            int offset = sum - k;
+            ans += countOfSum.getOrDefault(offset, 0);
+            countOfSum.put(sum, countOfSum.getOrDefault(sum, 0) + 1);
         }
 
         return ans;
