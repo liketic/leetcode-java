@@ -2,15 +2,14 @@ package BinaryNumberwithAlternatingBits;
 
 
 class Solution {
+
     public boolean hasAlternatingBits(int n) {
         boolean flag = (n % 2) == 1;
-        n /= 2;
         while (n > 0) {
-            boolean f = (n % 2) == 1;
-            if (f == flag)
+            n >>= 1;
+            if (((n & 1) == 1) == flag)
                 return false;
-            n /= 2;
-            flag = f;
+            flag = !flag;
         }
         return true;
     }

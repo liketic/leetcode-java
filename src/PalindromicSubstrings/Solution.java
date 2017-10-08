@@ -6,22 +6,22 @@ package PalindromicSubstrings;
  * The substrings with different start indexes or end indexes are counted as different substrings
  * even they consist of same characters.
  */
-public class Solution {
+class Solution {
 
     public int countSubstrings(String s) {
         if (s == null) return 0;
-        int n = s.length();
 
+        char[] chars = s.toCharArray();
         int ans = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0, n = chars.length; i < n; i++) {
             for (int j = i, k = i; j >= 0 && k < n; j--, k++) {
-                if (s.charAt(j) != s.charAt(k))
+                if (chars[j] != chars[k])
                     break;
                 ans++;
             }
             for (int j = i - 1, k = i; j >= 0 && k < n; j--, k++) {
-                if (s.charAt(j) != s.charAt(k))
+                if (chars[j] != chars[k])
                     break;
                 ans++;
             }

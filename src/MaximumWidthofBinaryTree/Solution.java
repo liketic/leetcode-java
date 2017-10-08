@@ -32,7 +32,7 @@ class Solution {
             int c = 0;
             boolean leftNull = true;
             int k;
-            boolean con = false;
+            boolean shouldContinue = false;
 
             for (int i = 0; i < t.length; i++) {
                 TreeNode node = t[i];
@@ -44,11 +44,11 @@ class Solution {
                     }
                     s = Math.max(s, c);
                     if (node.left != null || node.right != null) {
-                        con = true;
+                        shouldContinue = true;
                     }
                 }
             }
-            if (!con) break;
+            if (!shouldContinue) break;
 
             int l = t.length, r = -1;
 

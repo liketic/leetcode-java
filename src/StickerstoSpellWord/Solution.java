@@ -22,6 +22,7 @@ class Solution {
     }
 
     public int minStickers(String[] stickers, String target) {
+        // TODO this solution does not work now
         int r = Integer.MAX_VALUE;
         int n = stickers.length;
 

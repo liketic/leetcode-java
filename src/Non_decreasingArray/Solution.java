@@ -1,7 +1,8 @@
 package Non_decreasingArray;
 
 
-public class Solution {
+class Solution {
+
     private boolean canRemove(int[] nums, int i) {
         int x = -1;
         for (int j = 0; j < nums.length; j++) {

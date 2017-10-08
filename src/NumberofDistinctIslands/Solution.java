@@ -29,7 +29,13 @@ class Solution {
     }
 
     private static class Island {
-        int x, y, s;
+        int x, y, size;
+
+        Island(int x, int y, int size) {
+            this.x = x;
+            this.y = y;
+            this.size = size;
+        }
     }
 
     private boolean checkIsSame(int lx, int ly, int rx, int ry, int[][] grid, int numRow, int numCol) {
@@ -56,9 +62,7 @@ class Solution {
     }
 
     private boolean isSame(Island a, Island b, int[][] grid, int numRow, int numCol) {
-        if (a.s != b.s)
-            return false;
-        return checkIsSame(a.x, a.y, b.x, b.y, grid, numRow, numCol);
+        return a.size == b.size && checkIsSame(a.x, a.y, b.x, b.y, grid, numRow, numCol);
     }
 
     private List<Island> findIslands(int[][] grid, int numRow, int numCol) {
@@ -66,12 +70,8 @@ class Solution {
         for (int i = 0; i < numRow; i++) {
             for (int j = 0; j < numCol; j++) {
                 if (grid[i][j] == 1) {
-                    int s = floodFill(grid, i, j, numRow, numCol);
-                    Island island = new Island();
-                    island.x = i;
-                    island.y = j;
-                    island.s = s;
-                    islands.add(island);
+                    int size = floodFill(grid, i, j, numRow, numCol);
+                    islands.add(new Island(i, j, size));
                 }
             }
         }
@@ -89,23 +89,23 @@ class Solution {
         if (islands.isEmpty())
             return 0;
 
-        List<Island> u = new ArrayList<>();
+        List<Island> uniqueIslands = new ArrayList<>();
         for (Island island : islands) {
             boolean hasSame = false;
-            for (Island anU : u) {
+            for (Island uniqueIsland : uniqueIslands) {
                 int[][] grid2 = new int[numRow][numCol];
                 for (int x = 0; x < numRow; x++) {
                     System.arraycopy(grid[x], 0, grid2[x], 0, numCol);
                 }
-                if (isSame(island, anU, grid2, numRow, numCol)) {
+                if (isSame(island, uniqueIsland, grid2, numRow, numCol)) {
                     hasSame = true;
                     break;
                 }
             }
             if (!hasSame) {
-                u.add(island);
+                uniqueIslands.add(island);
             }
         }
-        return u.size();
+        return uniqueIslands.size();
     }
 }
