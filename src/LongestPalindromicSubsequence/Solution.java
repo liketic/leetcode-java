@@ -1,7 +1,7 @@
 package LongestPalindromicSubsequence;
 
 
-public class Solution {
+class Solution {
 
     private int[][] dp;
 

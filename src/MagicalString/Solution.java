@@ -30,7 +30,8 @@ package MagicalString;
  * Explanation: The first 6 elements of magical string S is "12211" and it contains three 1's, so
  * return 3.
  */
-public class Solution {
+class Solution {
+    
     public int magicalString(int n) {
         if (n <= 3) return 1;
         int r = 1;

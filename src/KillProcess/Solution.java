@@ -38,7 +38,7 @@ import java.util.Map;
  * n >= 1.
  * </pre>
  */
-public class Solution {
+class Solution {
 
 
     private void populateAll(Map<Integer, List<Integer>> childMap, Integer pid, List<Integer> rv) {

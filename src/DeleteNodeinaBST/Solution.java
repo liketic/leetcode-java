@@ -50,7 +50,7 @@ class TreeNode {
     }
 }
 
-public class Solution {
+class Solution {
 
     private void replace(TreeNode parent, TreeNode node, TreeNode newNode) {
         if (parent.left == node) {

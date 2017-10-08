@@ -11,7 +11,7 @@ package AddTwoNumbers;
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) Output: 7 -> 0 -> 8
  */
 
-public class Solution {
+class Solution {
 
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -49,31 +49,6 @@ public class Solution {
         }
 
         return head;
-    }
-
-
-    private static void printListNode(ListNode node) {
-        while (node != null) {
-            System.out.print(node.val);
-            if (node.next != null) {
-                System.out.print(" > ");
-            }
-            node = node.next;
-        }
-        System.out.println();
-    }
-
-    public static void main(String[] args) {
-        ListNode l1 = new ListNode(2);
-        l1.next = new ListNode(4);
-        l1.next.next = new ListNode(3);
-
-        ListNode l2 = new ListNode(5);
-        l2.next = new ListNode(6);
-        l2.next.next = new ListNode(4);
-
-        ListNode node = new Solution().addTwoNumbers(l2, l1);
-        printListNode(node);
     }
 
 }

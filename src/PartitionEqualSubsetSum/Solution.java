@@ -22,7 +22,8 @@ package PartitionEqualSubsetSum;
  * </pre>
  * Explanation: The array cannot be partitioned into equal sum subsets.
  */
-public class Solution {
+class Solution {
+    
     public boolean canPartition(int[] nums) {
         int[] v = new int[101];
         int sum = 0;

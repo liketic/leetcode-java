@@ -29,7 +29,7 @@ import java.util.Stack;
  * Explanation: There are three 132 patterns in the sequence: [-1, 3, 2], [-1, 3, 0] and [-1, 2,
  * 0].
  */
-public class Solution {
+class Solution {
     public boolean find132pattern(int[] nums) {
         Stack<Integer> s = new Stack<>();
         int two = Integer.MIN_VALUE; // 2

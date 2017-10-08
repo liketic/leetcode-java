@@ -25,12 +25,12 @@ public class Solution {
 
     private boolean permuteNums(int[] nums) {
         int n = nums.length;
-        int minmium = -1, loc = -1;
+        int minimum = -1, loc = -1;
 
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i + 1; j < n; j++) {
-                if (nums[i] < nums[j] && (loc == -1 || minmium > nums[j])) {
-                    minmium = nums[j];
+                if (nums[i] < nums[j] && (loc == -1 || minimum > nums[j])) {
+                    minimum = nums[j];
                     loc = j;
                 }
             }

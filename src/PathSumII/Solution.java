@@ -36,7 +36,8 @@ class TreeNode {
     }
 }
 
-public class Solution {
+
+class Solution {
 
     private List<List<Integer>> pathSumFromRoot(TreeNode root, int sum, int[] path, int n) {
         List<List<Integer>> paths = new ArrayList<>();
@@ -51,7 +52,9 @@ public class Solution {
                 }
                 path[n++] = sum;
                 List<Integer> asList = new ArrayList<>(n);
-                for (int i = 0; i < n; i++) asList.add(path[i]);
+                for (int i = 0; i < n; i++) {
+                    asList.add(path[i]);
+                }
                 paths.add(asList);
                 return paths;
             }

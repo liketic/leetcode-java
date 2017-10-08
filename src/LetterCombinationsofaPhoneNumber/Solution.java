@@ -17,7 +17,7 @@ import java.util.Map;
  * Although the above answer is in lexicographical order, your answer could be in any order you
  * want.
  */
-public class Solution {
+class Solution {
 
     private static Map<Character, Character[]> NUMBER_MAP = new HashMap<>();
 

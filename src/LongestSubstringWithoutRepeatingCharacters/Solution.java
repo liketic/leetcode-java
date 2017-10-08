@@ -13,20 +13,15 @@ package LongestSubstringWithoutRepeatingCharacters;
  * Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a
  * substring, "pwke" is a subsequence and not a substring.
  */
-public class Solution {
+class Solution {
     public int lengthOfLongestSubstring(String s) {
-        if (s == null) {
+        if (s == null || s.isEmpty()) {
             return 0;
         }
-        int n = s.length();
-        if (n == 0) {
-            return 0;
-        }
-
         int[] index = new int[256];
         int r = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0, n = s.length(); i < n; i++) {
             for (int j = 0; j < 256; j++) {
                 index[j] = 0;
             }

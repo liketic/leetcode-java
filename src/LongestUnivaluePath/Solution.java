@@ -10,7 +10,7 @@ class TreeNode {
     }
 }
 
-public class Solution {
+class Solution {
     
     private int longestUnivaluePath(TreeNode root, int v) {
         if (root == null || root.val != v) {

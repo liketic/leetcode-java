@@ -10,7 +10,8 @@ import java.util.List;
  * Given [1,3],[2,6],[8,10],[15,18],
  * return [1,6],[8,10],[15,18].
  */
-public class Solution {
+class Solution {
+
     public List<Interval> merge(List<Interval> intervals) {
         intervals.sort((o1, o2) -> {
             if (o1.start == o2.start) {
@@ -20,7 +21,7 @@ public class Solution {
         });
 
         List<Interval> ret = new ArrayList<>();
-        int start = Integer.MAX_VALUE, end = -Integer.MAX_VALUE;
+        int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
 
         for (Interval interval : intervals) {
             if (interval.start > end) {
@@ -45,15 +46,9 @@ public class Solution {
 /**
  * Definition for an interval.
  */
-
 class Interval {
     int start;
     int end;
-
-    Interval() {
-        start = 0;
-        end = 0;
-    }
 
     Interval(int s, int e) {
         start = s;

@@ -11,7 +11,7 @@ package CountandSay;
  *
  * Note: The sequence of integers will be represented as a string.
  */
-public class Solution {
+class Solution {
 
     public String countAndSay(int n) {
         String str = "1";

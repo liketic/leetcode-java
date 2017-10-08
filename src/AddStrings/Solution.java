@@ -12,7 +12,7 @@ package AddStrings;
  * You must not use any built-in BigInteger library or convert the inputs to integer directly.
  * </pre>
  */
-public class Solution {
+class Solution {
 
 
     public String addStrings(String num1, String num2) {

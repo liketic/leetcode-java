@@ -16,7 +16,7 @@ import java.util.List;
  *
  * A Solution set is: [ [-1,  0, 0, 1], [-2, -1, 1, 2], [-2,  0, 0, 2] ]
  */
-public class Solution {
+class Solution {
 
     private static class Node {
         int i;
@@ -36,10 +36,9 @@ public class Solution {
             return (i == other.i || i == other.j || j == other.i || j == other.j);
         }
     }
-    
-    private static boolean isListsEqual(List<Integer> a, List<Integer> b) {
-        int n = a.size();
-        for (int i = 0; i < n; i++) {
+
+    private static boolean listEqual(List<Integer> a, List<Integer> b) {
+        for (int i = 0, n = a.size(); i < n; i++) {
             if (!a.get(i).equals(b.get(i))) {
                 return false;
             }
@@ -48,20 +47,12 @@ public class Solution {
     }
 
     private static boolean checkIfExist(List<List<Integer>> resultSet, List<Integer> item) {
-        for (List<Integer> it : resultSet) {
-            if (isListsEqual(it, item)) {
-                return true;
-            }
-        }
-        return false;
+        return resultSet.stream().anyMatch(it -> listEqual(it, item));
     }
 
     public List<List<Integer>> fourSum(int[] nums, int target) {
-
         Arrays.sort(nums);
-
         int n = nums.length;
-
         Node[] nodes = new Node[n * n];
 
         int size = 0;
@@ -108,12 +99,11 @@ public class Solution {
                 if (nodes[j].v < v || nodes[i].hasIntersection(nodes[j])) {
                     continue;
                 }
-                List<Integer> rv = new ArrayList<>();
+                List<Integer> rv = new ArrayList<>(4);
                 rv.add(nodes[i].vi);
                 rv.add(nodes[i].vj);
                 rv.add(nodes[j].vi);
                 rv.add(nodes[j].vj);
-
                 Collections.sort(rv);
 
                 if (!checkIfExist(resultSet, rv)) {
@@ -123,15 +113,5 @@ public class Solution {
         }
 
         return resultSet;
-    }
-
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{1, 0, -1, 0, -2, 2};
-        List<List<Integer>> r = new Solution().fourSum(nums, 0);
-        for (List<Integer> x : r) {
-            System.out.println(Arrays.toString(x.toArray()));
-        }
-        // [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
     }
 }

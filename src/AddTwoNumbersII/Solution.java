@@ -25,7 +25,7 @@ class ListNode {
     }
 }
 
-public class Solution {
+class Solution {
 
     private int lengthOf(ListNode listNode) {
         int n = 0;
