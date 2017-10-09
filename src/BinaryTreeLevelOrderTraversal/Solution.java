@@ -37,7 +37,8 @@ class TreeNode {
     }
 }
 
-public class Solution {
+
+class Solution {
 
     private List<List<Integer>> levelOrderWithQueue(TreeNode root) {
         List<List<Integer>> vals = new ArrayList<>();

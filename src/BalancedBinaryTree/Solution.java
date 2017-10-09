@@ -17,7 +17,7 @@ class TreeNode {
     }
 }
 
-public class Solution {
+class Solution {
 
     private int depthOf(TreeNode root) {
         if (root == null) return 0;

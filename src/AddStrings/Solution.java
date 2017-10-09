@@ -14,30 +14,35 @@ package AddStrings;
  */
 class Solution {
 
+    private int char2Int(char ch) {
+        return ch - '0';
+    }
 
     public String addStrings(String num1, String num2) {
         if (num1.length() < num2.length()) {
             return addStrings(num2, num1);
         }
         int left = 0;
-        char[] arr = new char[num1.length() + 1];
+        // The result at most num1.length() + 1 digits
+        int[] digits = new int[num1.length() + 1];
         int k = 0;
 
         for (int i = num1.length() - 1, j = num2.length() - 1; i >= 0; i--, j--) {
-            int v = (num1.charAt(i) - '0') + left;
+            int v = char2Int(num1.charAt(i)) + left;
             if (j >= 0) {
-                v += (num2.charAt(j) - '0');
+                // The length of num2 maybe less than num1
+                v += char2Int(num2.charAt(j));
             }
             left = v / 10;
             v %= 10;
-            arr[k++] = (char) (v + '0');
+            digits[k++] = v;
         }
         if (left > 0) {
-            arr[k++] = (char) (left + '0');
+            digits[k++] = left;
         }
         StringBuilder sum = new StringBuilder(k);
         for (int i = k - 1; i >= 0; i--) {
-            sum.append(arr[i]);
+            sum.append(digits[i]);
         }
         return sum.toString();
     }
