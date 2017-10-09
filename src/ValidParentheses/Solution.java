@@ -8,7 +8,7 @@ package ValidParentheses;
  * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]"
  * are not.
  */
-public class Solution {
+class Solution {
 
     private char closeFor(char ch) {
         switch (ch) {
@@ -57,10 +57,5 @@ public class Solution {
     public boolean isValid(String s) {
         int n = s.length();
         return isValid(s.toCharArray(), 0, n - 1);
-    }
-    
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        System.out.println(s.isValid("()"));
     }
 }

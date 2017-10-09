@@ -9,7 +9,7 @@ package ValidSudoku;
  * Each column must have the numbers 1-9 occuring just once.
  * And the numbers 1-9 must occur just once in each of the 9 sub-boxes of the grid.
  */
-public class Solution {
+class Solution {
 
     private static int char2Int(char ch) {
         return ch == '.' ? 0 : Character.digit(ch, 10);

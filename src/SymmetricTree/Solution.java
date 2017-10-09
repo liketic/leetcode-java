@@ -32,7 +32,7 @@ class TreeNode {
     }
 }
 
-public class Solution {
+class Solution {
 
     private boolean checkSymmetricRecursively(TreeNode l, TreeNode r) {
         if (l == null && r == null) return true;

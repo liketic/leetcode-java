@@ -23,7 +23,7 @@ class TreeNode {
     }
 }
 
-public class Solution {
+class Solution {
 
     private int sumOfLeftLeaves(TreeNode root, boolean isLeft) {
         if (root == null) return 0;

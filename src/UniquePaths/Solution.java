@@ -8,7 +8,7 @@ package UniquePaths;
  *
  * How many possible unique paths are there?
  */
-public class Solution {
+class Solution {
 
     public int uniquePaths(int m, int n) {
         int[][] numPaths = new int[m][n];

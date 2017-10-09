@@ -29,7 +29,8 @@ import java.util.Arrays;
  * </pre>
  * Both numbers with value 2 are both considered as second maximum.
  */
-public class Solution {
+class Solution {
+
     public int thirdMax(int[] nums) {
         int[] maxs = new int[3];
         int n = 0;

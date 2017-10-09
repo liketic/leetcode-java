@@ -9,7 +9,17 @@ package SwapNodesinPairs;
  * Your algorithm should use only constant space. You may not modify the values in the list, only
  * nodes itself can be changed.
  */
-public class Solution {
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+    }
+}
+
+class Solution {
+
     public ListNode swapPairs(ListNode head) {
         ListNode ptr = head;
         boolean isHead = true;

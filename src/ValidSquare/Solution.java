@@ -24,7 +24,7 @@ import java.util.List;
  * Input points have no order.
  * </pre>
  */
-public class Solution {
+class Solution {
 
     private void swap(int[] x, int i, int j) {
         if (i != j) {

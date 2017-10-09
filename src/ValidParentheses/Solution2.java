@@ -8,7 +8,7 @@ package ValidParentheses;
  * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]"
  * are not.
  */
-public class Solution2 {
+class Solution2 {
 
     private char closeFor(char ch) {
         switch (ch) {
