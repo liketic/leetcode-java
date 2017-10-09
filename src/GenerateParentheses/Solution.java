@@ -19,7 +19,7 @@ import java.util.List;
  * ]
  * </pre>
  */
-public class Solution {
+class Solution {
 
     private List<String> dfs(int left, int open, String prefix) {
         List<String> r = new ArrayList<>();

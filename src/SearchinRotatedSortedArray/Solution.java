@@ -11,8 +11,7 @@ package SearchinRotatedSortedArray;
  *
  * You may assume no duplicate exists in the array.
  */
-public class Solution {
-
+class Solution {
     
     public int search(int[] nums, int target) {
         int l = 0, r = nums.length - 1;

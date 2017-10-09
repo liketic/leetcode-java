@@ -27,8 +27,7 @@ package EliminationGame;
  * 6
  * </pre>
  */
-public class Solution {
-
+class Solution {
 
     public int lastRemaining(int n) {
         int[] ops = new int[64];

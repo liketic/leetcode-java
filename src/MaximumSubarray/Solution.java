@@ -12,7 +12,8 @@ package MaximumSubarray;
  * More practice: If you have figured out the O(n) Solution, try coding another Solution using the
  * divide and conquer approach, which is more subtle.
  */
-public class Solution {
+class Solution {
+
     public int maxSubArray(int[] nums) {
         long sum = 0;
         long maximum = -Integer.MAX_VALUE;

@@ -14,7 +14,7 @@ package SingleElementinaSortedArray;
  * </pre>
  * Note: Your Solution should run in O(log n) time and O(1) space.
  */
-public class Solution {
+class Solution {
 
     public int singleNonDuplicate(int[] nums) {
         int n = nums.length;

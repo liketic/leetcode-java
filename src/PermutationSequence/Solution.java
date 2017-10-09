@@ -18,7 +18,7 @@ import java.util.Arrays;
  *
  * Note: Given n will be between 1 and 9 inclusive.
  */
-public class Solution {
+class Solution {
 
     public String getPermutation(int n, int k) {
         int total = 1;

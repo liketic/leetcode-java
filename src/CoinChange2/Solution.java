@@ -34,13 +34,12 @@ package CoinChange2;
  * Output: 1
  * </pre>
  */
-public class Solution {
+class Solution {
     public int change(int amount, int[] coins) {
         if (amount <= 0) {
             return 1;
         }
         int[] count = new int[amount + 1];
-
         count[0] = 1;
 
         for (int coin : coins) {
@@ -50,11 +49,5 @@ public class Solution {
         }
 
         return count[amount];
-    }
-
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.change(5, new int[]{1, 2, 5}));
     }
 }

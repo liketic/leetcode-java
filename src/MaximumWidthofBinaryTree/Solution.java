@@ -34,8 +34,7 @@ class Solution {
             int k;
             boolean shouldContinue = false;
 
-            for (int i = 0; i < t.length; i++) {
-                TreeNode node = t[i];
+            for (TreeNode node : t) {
                 c++;
                 if (node != null) {
                     if (leftNull) {

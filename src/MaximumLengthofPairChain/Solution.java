@@ -26,10 +26,10 @@ class Solution {
         if (n == 0) return 0;
 
         List<Pair> asList = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
+        for (int[] pair : pairs) {
             Pair p = new Pair();
-            p.l = pairs[i][0];
-            p.r = pairs[i][1];
+            p.l = pair[0];
+            p.r = pair[1];
             asList.add(p);
         }
         asList.sort((o1, o2) -> {

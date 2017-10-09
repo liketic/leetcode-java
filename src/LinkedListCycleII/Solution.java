@@ -12,7 +12,7 @@ package LinkedListCycleII;
  * }
  * }
  */
-public class Solution {
+class Solution {
 
     private boolean isOnCycle(ListNode node, ListNode cycle) {
         ListNode backup = cycle;

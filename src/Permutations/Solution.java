@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * ]
  * </pre>
  */
-public class Solution {
+class Solution {
 
     private boolean permuteNums(int[] nums) {
         int n = nums.length;

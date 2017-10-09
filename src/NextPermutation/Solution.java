@@ -21,8 +21,7 @@ import java.util.Arrays;
  * 1,1,5 → 1,5,1
  * </pre>
  */
-public class Solution {
-
+class Solution {
 
     public void nextPermutation(int[] nums) {
         int n = nums.length;

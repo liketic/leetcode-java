@@ -14,7 +14,7 @@ package DeleteOperationforTwoStrings;
  * Characters in given words can only be lower-case letters.
  * </pre>
  */
-public class Solution {
+class Solution {
     public int minDistance(String word1, String word2) {
         int n = word1.length();
         int l = word2.length();

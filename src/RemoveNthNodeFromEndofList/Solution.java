@@ -13,7 +13,16 @@ package RemoveNthNodeFromEndofList;
  * Given n will always be valid.
  * Try to do this in one pass.
  */
-public class Solution {
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+    }
+}
+
+class Solution {
 
     public int getListLength(ListNode head) {
         int n = 0;

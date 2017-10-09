@@ -3,7 +3,7 @@ package Pow_x_n;
 /**
  * Implement pow(x, n).
  */
-public class Solution {
+class Solution {
 
     private double powFor(double x, long n) {
         if (n < 0) {

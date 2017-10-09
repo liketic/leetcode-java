@@ -16,7 +16,8 @@ package RemoveDuplicatesfromSortedArray;
  *
  * Subscribe to see which companies asked this question.
  */
-public class Solution {
+class Solution {
+
     public int removeDuplicates(int[] nums) {
         int pos = 0;
         for (int i = 1; i < nums.length; i++) {

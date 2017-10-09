@@ -16,7 +16,8 @@ package JumpGame;
  * A = [3,2,1,0,4], return false.
  * </pre>
  */
-public class Solution {
+class Solution {
+
     public boolean canJump(int[] nums) {
         int n = nums.length;
         int maxPos = 0;

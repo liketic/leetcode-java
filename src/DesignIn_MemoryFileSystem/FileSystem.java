@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  *
  * readContentFromFile: Given a file path, return its content in string format.
  */
-public class FileSystem {
+class FileSystem {
 
     // Store file content
     private Map<String, String> file2Content;

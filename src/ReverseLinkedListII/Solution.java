@@ -13,7 +13,8 @@ package ReverseLinkedListII;
  * Given m, n satisfy the following condition:
  * 1 ≤ m ≤ n ≤ length of list.
  */
-public class Solution {
+class Solution {
+
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (m >= n - 1) return head;
         

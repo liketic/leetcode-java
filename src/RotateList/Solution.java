@@ -16,7 +16,7 @@ class ListNode {
     }
 }
 
-public class Solution {
+class Solution {
 
     private int sizeOf(ListNode head) {
         ListNode ptr = head;

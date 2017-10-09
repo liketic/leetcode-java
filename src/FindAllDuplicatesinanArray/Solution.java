@@ -16,7 +16,7 @@ import java.util.List;
  *
  * Output: [2,3]
  */
-public class Solution {
+class Solution {
 
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> duplicatedNums = new ArrayList<>();

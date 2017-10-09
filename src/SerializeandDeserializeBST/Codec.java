@@ -30,7 +30,7 @@ class TreeNode {
     }
 }
 
-public class Codec {
+class Codec {
 
     private void preOrder(TreeNode root, List<Integer> nums) {
         if (root == null) return;

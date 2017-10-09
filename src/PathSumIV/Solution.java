@@ -7,7 +7,7 @@ class Solution {
         return n / 100;
     }
 
-    private int getPostition(int n) {
+    private int getPosition(int n) {
         return (n % 100) / 10;
     }
 
@@ -22,17 +22,14 @@ class Solution {
         for (int i = 0; i < 100; i++)
             arr[i] = -1;
 
-        for (int i = 0; i < nums.length; i++) {
-            int l = getLevel(nums[i]);
-            int p = getPostition(nums[i]);
-            int v = getValue(nums[i]);
+        for (int num : nums) {
+            int l = getLevel(num);
+            int p = getPosition(num);
+            int v = getValue(num);
 
             int x = (1 << (l - 1)) + p - 1;
-
             arr[x] = v;
         }
-
-//        System.out.println(Arrays.toString(arr));
 
         int s = 0;
 
@@ -52,10 +49,5 @@ class Solution {
         }
 
         return s;
-    }
-
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        System.out.println(s.pathSum(new int[]{113, 215, 221}));
     }
 }

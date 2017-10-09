@@ -23,6 +23,7 @@ package LongestPalindrome;
  * </pre>
  */
 class Solution {
+
     public int longestPalindrome(String s) {
         int[] counts = new int[128];
         for (char ch : s.toCharArray()) {

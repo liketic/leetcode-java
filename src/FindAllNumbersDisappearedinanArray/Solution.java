@@ -21,7 +21,7 @@ import java.util.List;
  * [5,6]
  * </pre>
  */
-public class Solution {
+class Solution {
 
     private int locationOf(int v) {
         return v - 1;

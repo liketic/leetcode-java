@@ -17,7 +17,7 @@ package PermutationinString;
  * The length of both given strings is in range [1, 10,000].
  * </pre>
  */
-public class Solution {
+class Solution {
 
     private int loc(char ch) {
         return ch - 'a';

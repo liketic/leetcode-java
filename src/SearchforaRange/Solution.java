@@ -15,7 +15,8 @@ package SearchforaRange;
  * return [3, 4].
  * </pre>
  */
-public class Solution {
+class Solution {
+
     public int[] searchRange(int[] nums, int target) {
         int n = nums.length;
         int[] rv = new int[2];

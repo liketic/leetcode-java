@@ -55,7 +55,8 @@ import java.util.Map;
  * How to make sure the duplicated files you find are not false positive?
  * </pre>
  */
-public class Solution {
+class Solution {
+
     public List<List<String>> findDuplicate(String[] paths) {
         Map<String, List<String>> content2files = new HashMap<>();
 

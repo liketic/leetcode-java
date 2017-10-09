@@ -12,7 +12,8 @@ class ListNode {
 }
 
 
-public class Solution {
+class Solution {
+
     public boolean hasCycle(ListNode head) {
         ListNode ptr1 = head, ptr2 = head;
 
@@ -22,7 +23,9 @@ public class Solution {
                 ptr2 = ptr2.next;
             }
             ptr1 = ptr1.next;
-            if (ptr1 == ptr2) return ptr1 != null;
+            if (ptr1 == ptr2) {
+                return ptr1 != null;
+            }
         }
         return false;
     }

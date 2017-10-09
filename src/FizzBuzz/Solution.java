@@ -33,7 +33,8 @@ import java.util.List;
  * ]
  * </pre>
  */
-public class Solution {
+class Solution {
+
     public List<String> fizzBuzz(int n) {
         List<String> fizz = new ArrayList<>(n);
         for (int i = 1; i <= n; i++) {

@@ -14,12 +14,11 @@ package LengthofLastWord;
  * return 5.
  * </pre>
  */
-public class Solution {
-    public int lengthOfLastWord(String s) {
-        int n = s.length();
-        int count = 0;
+class Solution {
 
-        for (int i = n - 1; i >= 0; i--) {
+    public int lengthOfLastWord(String s) {
+        int count = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
             if (Character.isWhitespace(s.charAt(i))) {
                 if (count > 0) break;
             } else {

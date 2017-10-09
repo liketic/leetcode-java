@@ -43,7 +43,8 @@ import java.util.Map;
  * Note that 'A' and 'a' are treated as two different characters.
  * </pre>
  */
-public class Solution {
+class Solution {
+
     public String frequencySort(String s) {
         Map<Character, Integer> count = new HashMap<>();
         for (char c : s.toCharArray()) {
