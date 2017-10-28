@@ -2,6 +2,7 @@ package CircularArrayLoop;
 
 
 class Solution {
+    
     public boolean circularArrayLoop(int[] nums) {
         int n = nums.length;
         if (n == 0)
