@@ -19,37 +19,39 @@ package PermutationinString;
  */
 class Solution {
 
+    private static final int charSize = 26;
+
     private int loc(char ch) {
         return ch - 'a';
     }
 
-    private boolean moreThan(int[] a, int[] b) {
-        for (int i = 0; i < 26; i++) {
+    private boolean greaterThan(int[] a, int[] b) {
+        for (int i = 0; i < charSize; i++) {
             if (a[i] < b[i]) return false;
         }
         return true;
     }
 
     public boolean checkInclusion(String s1, String s2) {
-        int[] cs1 = new int[26];
+        int[] cs1 = new int[charSize];
         for (char ch : s1.toCharArray()) {
             cs1[loc(ch)]++;
         }
 
         int l = s1.length();
         int n = s2.length();
-        int[][] cs2 = new int[n + 1][26];
+        int[][] cs2 = new int[n + 1][charSize];
 
         for (int i = 1; i <= n; i++) {
             cs2[i][loc(s2.charAt(i - 1))]++;
 
-            for (int k = 0; k < 26; k++) {
+            for (int k = 0; k < charSize; k++) {
                 cs2[i][k] += cs2[i - 1][k];
             }
 
-            if (moreThan(cs2[i], cs1)) {
+            if (greaterThan(cs2[i], cs1)) {
                 boolean ok = true;
-                for (int k = 0; k < 26; k++) {
+                for (int k = 0; k < charSize; k++) {
                     if (cs2[i][k] - cs2[i - l][k] != cs1[k]) {
                         ok = false;
                         break;

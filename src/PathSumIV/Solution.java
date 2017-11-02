@@ -17,7 +17,6 @@ class Solution {
 
     public int pathSum(int[] nums) {
         int[] arr = new int[100];
-        int n = 100;
 
         for (int i = 0; i < 100; i++)
             arr[i] = -1;
