@@ -9,11 +9,11 @@ import java.util.List;
 /**
  * Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d =
  * target? Find all unique quadruplets in the array which gives the sum of target.
- *
+ * <p>
  * Note: The Solution set must not contain duplicate quadruplets.
- *
+ * <p>
  * For example, given array S = [1, 0, -1, 0, -2, 2], and target = 0.
- *
+ * <p>
  * A Solution set is: [ [-1,  0, 0, 1], [-2, -1, 1, 2], [-2,  0, 0, 2] ]
  */
 class Solution {
@@ -54,7 +54,6 @@ class Solution {
         Arrays.sort(nums);
         int n = nums.length;
         Node[] nodes = new Node[n * n];
-
         int size = 0;
 
         for (int i = 0; i < n; i++) {
@@ -62,15 +61,14 @@ class Solution {
                 if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
                 }
-                nodes[size] = new Node(i, j, nums[i], nums[j]);
-                size++;
+                nodes[size++] = new Node(i, j, nums[i], nums[j]);
             }
         }
 
         Arrays.sort(nodes, 0, size, (o1, o2) -> {
             if (o1.v == o2.v) {
                 if (o1.i == o2.i) {
-                    return o1.j < o2.j ? -1 : (o1.j == o2.j ? 0 : 1);
+                    return Integer.compare(o1.j, o2.j);
                 }
                 return o1.i < o2.i ? -1 : 1;
             }
@@ -99,15 +97,11 @@ class Solution {
                 if (nodes[j].v < v || nodes[i].hasIntersection(nodes[j])) {
                     continue;
                 }
-                List<Integer> rv = new ArrayList<>(4);
-                rv.add(nodes[i].vi);
-                rv.add(nodes[i].vj);
-                rv.add(nodes[j].vi);
-                rv.add(nodes[j].vj);
-                Collections.sort(rv);
+                List<Integer> item = Arrays.asList(nodes[i].vi, nodes[i].vj, nodes[j].vi, nodes[j].vj);
+                Collections.sort(item);
 
-                if (!checkIfExist(resultSet, rv)) {
-                    resultSet.add(rv);
+                if (!checkIfExist(resultSet, item)) {
+                    resultSet.add(item);
                 }
             }
         }
