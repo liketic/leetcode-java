@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
+ * Find all possible combinations of k numbers that add up to a number n, given
+ * that only numbers from 1 to 9 can be used and each combination should be a
+ * unique set of numbers.
  * <p>
  * <pre>
  * Example 1:
@@ -30,8 +32,7 @@ class Solution {
                 if ((i & (1 << (j - 1))) > 0) {
                     c++;
                     sum += j;
-                    if (c > k) break;
-                    if (sum > n) break;
+                    if (c > k || sum > n) break;
                 }
             }
             if (c == k && sum == n) {
