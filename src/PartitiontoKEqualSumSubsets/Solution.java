@@ -14,7 +14,7 @@ class Solution {
         return true;
     }
 
-    private int mergeSubset(int v, Integer[] arr) {
+    private int union(int v, Integer[] arr) {
         for (int a : arr) {
             v |= a;
         }
@@ -50,12 +50,12 @@ class Solution {
             for (int h = subsets.size() - 1; h >= 0; h--) {
                 Integer[] subset = subsets.get(h);
                 if (noConflict(i, subset)) {
-                    if (mergeSubset(i, subset) == fullSet)
+                    if (union(i, subset) == fullSet)
                         return true;
-                    Integer[] union = new Integer[subset.length + 1];
-                    System.arraycopy(subset, 0, union, 0, subset.length);
-                    union[subset.length] = i;
-                    subsets.add(union);
+                    Integer[] merged = new Integer[subset.length + 1];
+                    System.arraycopy(subset, 0, merged, 0, subset.length);
+                    merged[subset.length] = i;
+                    subsets.add(merged);
                 }
             }
             Integer[] newSubset = new Integer[]{i};
