@@ -8,10 +8,10 @@ import java.util.Map;
 /**
  * You are given n pairs of numbers. In every pair, the first number is always smaller than the
  * second number.
- *
+ * <p>
  * Now, we define a pair (c, d) can follow another pair (a, b) if and only if b < c. Chain of pairs
  * can be formed in this fashion.
- *
+ * <p>
  * Given a set of pairs, find the length longest chain which can be formed. You needn't use up all
  * the given pairs. You can select pairs in any order.
  */
@@ -34,7 +34,7 @@ class Solution {
         }
         asList.sort((o1, o2) -> {
             if (o1.r == o2.r)
-                return o1.l < o2.l ? -1 : (o1.l == o2.l ? 0 : 1);
+                return Integer.compare(o1.l, o2.l);
             return o1.r < o2.r ? -1 : 1;
         });
 
@@ -46,8 +46,8 @@ class Solution {
             int s = 1;
 
             for (Map.Entry<Integer, Integer> entry : ans.entrySet()) {
-                if (entry.getKey() < cur.l) {
-                    s = Math.max(entry.getValue() + 1, s);
+                if (entry.getKey() < cur.l && s < entry.getValue() + 1) {
+                    s = entry.getValue() + 1;
                 }
             }
             ans.put(cur.r, s);
