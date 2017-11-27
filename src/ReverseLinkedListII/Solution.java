@@ -3,12 +3,12 @@ package ReverseLinkedListII;
 
 /**
  * Reverse a linked list from position m to n. Do it in-place and in one-pass.
- *
+ * <p>
  * For example:
  * Given 1->2->3->4->5->NULL, m = 2 and n = 4,
- *
+ * <p>
  * return 1->4->3->2->5->NULL.
- *
+ * <p>
  * Note:
  * Given m, n satisfy the following condition:
  * 1 ≤ m ≤ n ≤ length of list.
@@ -16,10 +16,11 @@ package ReverseLinkedListII;
 class Solution {
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (m >= n - 1) return head;
-        
+        if (m >= n - 1)
+            return head;
+
         ListNode mthPrev = null;
-        
+
         // Find the node before m-th node
         for (int i = m; i > 1; i--) {
             mthPrev = i == m ? head : mthPrev.next;
@@ -30,7 +31,7 @@ class Solution {
         for (int i = n; i > 0; i--) {
             nthNext = nthNext.next;
         }
-        
+
         // Reverse nodes between m-th and n-th node
         ListNode node = mthPrev == null ? head : mthPrev.next;
         int num = n - m + 1;
@@ -42,8 +43,9 @@ class Solution {
             node = next;
             num--;
         }
-        if (mthPrev == null) return nthNext;
-        
+        if (mthPrev == null)
+            return nthNext;
+
         mthPrev.next = nthNext;
         return head;
     }

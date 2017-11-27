@@ -24,7 +24,7 @@ class ListNode {
 
 class Solution {
 
-    public int getListLength(ListNode head) {
+    private int getListLength(ListNode head) {
         int n = 0;
         while (head != null) {
             n++;

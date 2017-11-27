@@ -18,6 +18,7 @@ package SearchInsertPosition;
 class Solution {
 
     public int searchInsert(int[] nums, int target) {
+        // TODO Fix this in binary search
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] >= target) {
                 return i;

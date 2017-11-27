@@ -31,7 +31,7 @@ class Solution {
             nums[i] = i + 1;
         }
 
-        String r = "";
+        StringBuilder r = new StringBuilder();
         int pos = 0, left = n;
 
         while (k > 0) {
@@ -40,7 +40,7 @@ class Solution {
 
             for (int i = pos; i < n; i++) {
                 if ((i - pos + 1) * total >= k) {
-                    r += nums[i];
+                    r.append(nums[i]);
                     // Remove the ith number from nums
                     if (i != pos) nums[i] = nums[pos];
                     k -= (i - pos) * total;
@@ -54,7 +54,7 @@ class Solution {
             if (left == 0) break;
         }
 
-        return r;
+        return r.toString();
     }
 
 }

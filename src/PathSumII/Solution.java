@@ -41,7 +41,8 @@ class Solution {
 
     private List<List<Integer>> pathSumFromRoot(TreeNode root, int sum, int[] path, int n) {
         List<List<Integer>> paths = new ArrayList<>();
-        if (root == null) return paths;
+        if (root == null)
+            return paths;
 
         if (root.left == null && root.right == null) {
             if (sum == root.val) {

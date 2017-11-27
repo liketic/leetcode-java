@@ -57,6 +57,6 @@ class Solution {
             disjointSet.union(edge[0], edge[1]);
         }
         // Should never happen
-        return new int[]{};
+        return null;
     }
 }
