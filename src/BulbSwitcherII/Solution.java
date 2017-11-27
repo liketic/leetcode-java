@@ -79,16 +79,16 @@ class Solution {
                 }
             }
 
-            boolean f = true;
+            boolean notFound = true;
 
             for (int j = r.size() - 1; j >= 0; j--) {
                 String x = r.get(j);
                 if (equalsTo(x, flag, n)) {
-                    f = false;
+                    notFound = false;
                     break;
                 }
             }
-            if (f) {
+            if (notFound) {
                 StringBuilder builder = new StringBuilder(n);
                 for (int k = 1; k <= n; k++) {
                     builder.append(flag[k]);

@@ -31,7 +31,8 @@ class Solution {
                 t++;
                 k = nums[k];
             }
-            r = Math.max(r, t);
+            if (r < t)
+                r = t;
         }
 
         return r;

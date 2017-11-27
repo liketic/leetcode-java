@@ -7,15 +7,15 @@ import java.util.List;
 /**
  * Given the coordinates of four points in 2D space, return whether the four points could construct
  * a square.
- *
+ * <p>
  * The coordinate (x,y) of a point is represented by an integer array with two integers.
- *
+ * <p>
  * Example:
  * <pre>
  * Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
  * Output: True
  * </pre>
- *
+ * <p>
  * Note:
  * <pre>
  * All the input integers are in the range [-10000, 10000].
@@ -47,22 +47,24 @@ class Solution {
         }
     }
 
-    private int calculateDis(int[] p1, int[] p2) {
+    private int calculateDistance(int[] p1, int[] p2) {
         return (p1[0] - p2[0]) * (p1[0] - p2[0]) + (p1[1] - p2[1]) * (p1[1] - p2[1]);
     }
 
     private boolean check(int[][] points, int[] orders) {
         int prev = -1;
         for (int i = 0; i < 4; i++) {
-            int t = calculateDis(points[orders[i]], points[orders[(i + 1) % 4]]);
-            if (t == 0) return false;
-            if (prev < 0) prev = t;
+            int t = calculateDistance(points[orders[i]], points[orders[(i + 1) % 4]]);
+            if (t == 0)
+                return false;
+            if (prev < 0)
+                prev = t;
             else if (prev != t) {
                 return false;
             }
         }
-        int a = calculateDis(points[orders[0]], points[orders[2]]);
-        int b = calculateDis(points[orders[1]], points[orders[3]]);
+        int a = calculateDistance(points[orders[0]], points[orders[2]]);
+        int b = calculateDistance(points[orders[1]], points[orders[3]]);
         return (a == b && a > 0);
     }
 

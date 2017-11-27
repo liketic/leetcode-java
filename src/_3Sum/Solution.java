@@ -46,11 +46,7 @@ public class Solution {
                 }
                 if (m > j && m < n && v + nums[m] == 0) {
                     // A valid m found
-                    List<Integer> rv = new ArrayList<>();
-                    rv.add(nums[i]);
-                    rv.add(nums[j]);
-                    rv.add(nums[m]);
-                    resultSet.add(rv);
+                    resultSet.add(Arrays.asList(nums[i], nums[j], nums[m]));
                 }
             }
         }

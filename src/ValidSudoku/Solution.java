@@ -33,7 +33,8 @@ class Solution {
 
     private static boolean isValid(int[] flag) {
         for (int i = 1; i <= 9; i++) {
-            if (flag[i] > 1) return false;
+            if (flag[i] > 1)
+                return false;
         }
         return true;
     }
