@@ -32,26 +32,26 @@ import java.util.Arrays;
 class Solution {
 
     public int thirdMax(int[] nums) {
-        int[] maxs = new int[3];
+        int[] topThree = new int[3];
         int n = 0;
 
         for (int num : nums) {
-            boolean in = false;
+            boolean existing = false;
             for (int i = 0; i < n; i++) {
-                if (maxs[i] == num) {
-                    in = true;
+                if (topThree[i] == num) {
+                    existing = true;
                     break;
                 }
             }
-            if (in) continue;
+            if (existing) continue;
 
             if (n < 3) {
-                maxs[n++] = num;
-            } else {
-                maxs[0] = Math.max(maxs[0], num);
+                topThree[n++] = num;
+            } else if (topThree[0] < num) {
+                topThree[0] = num;
             }
-            Arrays.sort(maxs, 0, 3);
+            Arrays.sort(topThree, 0, 3);
         }
-        return n < 3 ? maxs[n - 1] : maxs[0];
+        return n < 3 ? topThree[n - 1] : topThree[0];
     }
 }

@@ -4,7 +4,7 @@ package ValidParentheses;
 /**
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the
  * input string is valid.
- *
+ * <p>
  * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]"
  * are not.
  */
@@ -55,7 +55,6 @@ class Solution {
     }
 
     public boolean isValid(String s) {
-        int n = s.length();
-        return isValid(s.toCharArray(), 0, n - 1);
+        return isValid(s.toCharArray(), 0, s.length() - 1);
     }
 }

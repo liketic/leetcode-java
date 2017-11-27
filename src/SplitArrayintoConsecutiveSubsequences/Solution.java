@@ -7,7 +7,7 @@ import java.util.List;
  * You are given an integer array sorted in ascending order (may contain duplicates), you need to
  * split them into several subsequences, where each subsequences consist of at least 3 consecutive
  * integers. Return whether you can make such a split.
- *
+ * <p>
  * Example 1: Input: [1,2,3,3,4,5] Output: True Explanation: You can split them into two consecutive
  * subsequences :
  * <pre>
@@ -34,8 +34,7 @@ class Solution {
     public boolean isPossible(int[] nums) {
         List<List<Integer>> group = new ArrayList<>();
 
-        for (int i = 0, l = nums.length; i < l; i++) {
-            int val = nums[i];
+        for (int val : nums) {
             int len = Integer.MAX_VALUE;
             int pos = -1;
 
@@ -58,15 +57,6 @@ class Solution {
                 group.get(pos).add(val);
             }
         }
-        for (int i = 0, l = group.size(); i < l; i++) {
-            if (group.get(i).size() < 3)
-                return false;
-        }
-        return true;
-    }
-
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        System.out.println(s.isPossible(new int[]{1, 2, 3, 3, 4, 5}));
+        return group.stream().allMatch(g -> g.size() >= 3);
     }
 }

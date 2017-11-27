@@ -18,8 +18,8 @@ class Solution {
         int sum = 0;
         countOfSum.put(sum, 1);
 
-        for (int i = 0; i < n; i++) {
-            sum += nums[i];
+        for (int num : nums) {
+            sum += num;
             int offset = sum - k;
             ans += countOfSum.getOrDefault(offset, 0);
             countOfSum.put(sum, countOfSum.getOrDefault(sum, 0) + 1);

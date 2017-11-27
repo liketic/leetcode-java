@@ -34,7 +34,7 @@ class Solution {
         }
     }
 
-    private void permutation(int[] x, int i, List<int[]> result) {
+    private void permute(int[] x, int i, List<int[]> result) {
         if (i == 4) {
             int[] y = Arrays.copyOf(x, 4);
             result.add(y);
@@ -42,7 +42,7 @@ class Solution {
         }
         for (int j = i; j < 4; j++) {
             swap(x, i, j);
-            permutation(x, i + 1, result);
+            permute(x, i + 1, result);
             swap(x, i, j);
         }
     }
@@ -69,7 +69,7 @@ class Solution {
     public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
         int[] x = new int[]{0, 1, 2, 3};
         List<int[]> perms = new ArrayList<>();
-        permutation(x, 0, perms);
+        permute(x, 0, perms);
 
         int[][] points = {p1, p2, p3, p4};
 

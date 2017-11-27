@@ -69,7 +69,8 @@ class Solution {
                     newNodes.add(node.right);
                 }
             }
-            if (newNodes.size() == 0) return true;
+            if (newNodes.size() == 0)
+                return true;
             nodes = newNodes;
         }
     }
@@ -79,6 +80,5 @@ class Solution {
 //        return checkSymmetricRecursively(root.left, root.right);
         return checkSymmetricIteratively(root);
     }
-
-
+    
 }
