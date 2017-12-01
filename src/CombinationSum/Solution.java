@@ -22,7 +22,7 @@ import java.util.List;
  * ]
  * </pre>
  */
-public class Solution {
+class Solution {
 
     private List<List<Integer>> dfs(int[] candidates, int target, int pos, List<Integer> nums) {
         List<List<Integer>> rv = new ArrayList<>();

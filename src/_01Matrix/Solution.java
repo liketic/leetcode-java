@@ -34,7 +34,7 @@ import java.util.Queue;
  * The cells are adjacent in only four directions: up, down, left and right.
  * </pre>
  */
-public class Solution {
+class Solution {
 
     private static int[] dx = {1, 0, -1, 0};
     private static int[] dy = {0, 1, 0, -1};

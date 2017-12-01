@@ -1,43 +1,38 @@
 package EqualTreePartition;
 
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- * int val;
- * TreeNode left;
- * TreeNode right;
- * TreeNode(int x) { val = x; }
- * }
- */
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+}
+
 class Solution {
 
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
+    private int sumVal(TreeNode root) {
+        if (root == null)
+            return 0;
+        return sumVal(root.left) + sumVal(root.right) + root.val;
     }
 
-    private int total(TreeNode root) {
-        if (root == null) return 0;
-        return total(root.left) + total(root.right) + root.val;
-    }
-
-    private boolean checkEqualTree(TreeNode root, int v) {
-        if (root == null) return false;
-        int t = total(root);
-        if (t == v) return true;
-        return checkEqualTree(root.left, v) || checkEqualTree(root.right, v);
+    private boolean checkSum(TreeNode root, int v) {
+        if (root == null)
+            return false;
+        int t = sumVal(root);
+        if (t == v)
+            return true;
+        return checkSum(root.left, v) || checkSum(root.right, v);
     }
 
     public boolean checkEqualTree(TreeNode root) {
-        int t = total(root);
-        if (t % 2 != 0) return false;
-        t /= 2;
-        return checkEqualTree(root.left, t) || checkEqualTree(root.right, t);
+        int sumVal = sumVal(root);
+        if (sumVal % 2 != 0)
+            return false;
+        sumVal /= 2;
+        return checkSum(root.left, sumVal) || checkSum(root.right, sumVal);
     }
 }

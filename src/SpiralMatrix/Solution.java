@@ -18,8 +18,9 @@ import java.util.List;
  * ]
  * </pre>
  * You should return [1,2,3,6,9,8,7,4,5].
- */
-public class Solution {
+ */ 
+class Solution {
+
     public List<Integer> spiralOrder(int[][] matrix) {
         int m = matrix.length;
         if (m == 0) {

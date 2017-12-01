@@ -16,7 +16,7 @@ class UndirectedGraphNode {
     }
 }
 
-public class Solution {
+class Solution {
 
     private UndirectedGraphNode cloneGraph(UndirectedGraphNode node, Map<Integer, UndirectedGraphNode> hash) {
         if (node == null)
