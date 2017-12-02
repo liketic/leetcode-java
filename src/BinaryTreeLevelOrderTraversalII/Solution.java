@@ -1,29 +1,12 @@
-package BinaryTreeLevelOrderTraversal;
+package BinaryTreeLevelOrderTraversalII;
+
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to
- * right, level by level).
- * <p>
- * <p>
- * For example: Given binary tree [3,9,20,null,null,15,7],
- * <pre>
- * 3
- * / \
- * 9  20
- * /  \
- * 15   7
- * </pre>
- * return its zigzag level order traversal as:
- * <pre>
- * [
- * [3],
- * [9,20],
- * [15,7]
- * ]
- * </pre>
+ * Definition for a binary tree node.
  */
 class TreeNode {
     int val;
@@ -34,7 +17,6 @@ class TreeNode {
         val = x;
     }
 }
-
 
 class Solution {
 
@@ -67,7 +49,9 @@ class Solution {
         return result;
     }
 
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        return levelOrderTraversal(root);
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> order = levelOrderTraversal(root);
+        Collections.reverse(order);
+        return order;
     }
 }

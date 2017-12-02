@@ -4,12 +4,12 @@ package AddTwoNumbersII;
  * You are given two non-empty linked lists representing two non-negative integers. The most
  * significant digit comes first and each of their nodes contain a single digit. Add the two numbers
  * and return it as a linked list.
- *
+ * <p>
  * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
- *
+ * <p>
  * Follow up: What if you cannot modify the input lists? In other words, reversing the lists is not
  * allowed.
- *
+ * <p>
  * Example:
  * <pre>
  * Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
@@ -27,7 +27,7 @@ class ListNode {
 
 class Solution {
 
-    private int lengthOf(ListNode listNode) {
+    private int getLength(ListNode listNode) {
         int n = 0;
         while (listNode != null) {
             n++;
@@ -83,14 +83,16 @@ class Solution {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if (l1 == null) return l2;
-        if (l2 == null) return l1;
-        int l1n = lengthOf(l1);
-        int l2n = lengthOf(l2);
-        if (l1n < l2n) {
-            return add(l2, l2n, l1, l1n);
+        if (l1 == null)
+            return l2;
+        if (l2 == null)
+            return l1;
+        int len1 = getLength(l1);
+        int len2 = getLength(l2);
+        if (len1 < len2) {
+            return add(l2, len2, l1, len1);
         } else {
-            return add(l1, l1n, l2, l2n);
+            return add(l1, len1, l2, len2);
         }
     }
 }

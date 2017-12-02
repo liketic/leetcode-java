@@ -19,15 +19,17 @@ class TreeNode {
 
 class Solution {
 
-    private int depthOf(TreeNode root) {
-        if (root == null) return 0;
-        return Math.max(depthOf(root.left), depthOf(root.right)) + 1;
+    private int getHeight(TreeNode root) {
+        if (root == null)
+            return 0;
+        return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
     }
 
 
     public boolean isBalanced(TreeNode root) {
-        if (root == null) return true;
-        if (Math.abs(depthOf(root.right) - depthOf(root.left)) > 1) {
+        if (root == null)
+            return true;
+        if (Math.abs(getHeight(root.right) - getHeight(root.left)) > 1) {
             return false;
         }
         return isBalanced(root.left) && isBalanced(root.right);
