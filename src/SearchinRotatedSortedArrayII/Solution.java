@@ -27,7 +27,9 @@ class Solution {
                     l = m + 1;
                 else
                     r = m - 1;
-            } else { // nums[l] == nums[m] == nums[r]
+            } else {
+                // if nums[l] == nums[m] == nums[r], actually we don't 
+                // know which side target located in.
                 return search(nums, target, l, m - 1) || search(nums, target, m + 1, r);
             }
         }
