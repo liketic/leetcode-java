@@ -28,9 +28,8 @@ class Solution {
             return null;
         TreeNode root = new TreeNode(preorder[l]);
         int i = s;
-        for (; i <= e; i++)
-            if (inorder[i] == preorder[l])
-                break;
+        while (i <= e && inorder[i] != preorder[l])
+            i++;
         root.left = buildTree(preorder, l + 1, l + i - s, inorder, s, i - 1);
         root.right = buildTree(preorder, l + i - s + 1, r, inorder, i + 1, e);
         return root;
