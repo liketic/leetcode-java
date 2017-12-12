@@ -42,11 +42,13 @@ public class NestedIterator implements Iterator<Integer> {
     @Override
     public boolean hasNext() {
         while (true) {
-            while (iterator == null || !iterator.hasNext()) {
+            if (iterator == null || !iterator.hasNext()) {
                 if (stack.isEmpty())
                     return false;
                 iterator = stack.pop();
             }
+            if (!iterator.hasNext())
+                continue;
             NestedInteger nested = iterator.next();
             if (nested.isInteger()) {
                 // cache the next integer because next() cannot call twice
