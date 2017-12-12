@@ -16,6 +16,7 @@ class ListNode {
  * Sort a linked list using insertion sort.
  */
 class Solution {
+
     public ListNode insertionSortList(ListNode head) {
         if (head == null)
             return null;
@@ -25,6 +26,7 @@ class Solution {
 
         while (head != null) {
             if (head.val < nh.val) {
+                // Insert before the head node
                 ListNode next = head.next;
                 head.next = nh;
                 nh = head;
@@ -32,23 +34,24 @@ class Solution {
                 continue;
             }
             ListNode p = nh;
-            boolean inserted = false;
-            while (p.next != null) {
+            while (true) {
+                if (p.next == null) {
+                    // Insert after the tail node
+                    p.next = head;
+                    head = head.next;
+                    p.next.next = null;
+                    break;
+                }
                 if (head.val < p.next.val) {
+                    // Insert in the middle of list 
                     ListNode next = head.next;
                     ListNode pnext = p.next;
                     p.next = head;
                     head.next = pnext;
                     head = next;
-                    inserted = true;
                     break;
                 }
                 p = p.next;
-            }
-            if (!inserted) {
-                p.next = head;
-                head = head.next;
-                p.next.next = null;
             }
         }
         return nh;
