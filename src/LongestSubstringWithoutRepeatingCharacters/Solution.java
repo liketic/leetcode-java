@@ -15,15 +15,17 @@ package LongestSubstringWithoutRepeatingCharacters;
  */
 class Solution {
 
+    private static final int maxCharValue = 256;
+
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.isEmpty()) {
             return 0;
         }
-        int[] index = new int[256];
+        int[] index = new int[maxCharValue];
         int r = 0;
 
         for (int i = 0, n = s.length(); i < n; i++) {
-            for (int j = 0; j < 256; j++) {
+            for (int j = 0; j < maxCharValue; j++) {
                 index[j] = 0;
             }
             int len = 0;

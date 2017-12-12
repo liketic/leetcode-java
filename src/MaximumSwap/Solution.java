@@ -2,7 +2,7 @@ package MaximumSwap;
 
 class Solution {
 
-    private int assemble(int[] digits, int n) {
+    private int digitsToInt(int[] digits, int n) {
         int v = 0;
         for (int i = n - 1; i >= 0; i--) {
             v = v * 10 + digits[i];
@@ -23,7 +23,7 @@ class Solution {
         int[] digits = new int[10];
         int k = 0;
         // It's possible no any swap
-        int ans = num;
+        int max = num;
 
         while (num > 0) {
             digits[k] = num % 10;
@@ -35,12 +35,13 @@ class Solution {
             for (int j = i + 1; j < k; j++) {
                 if (digits[i] > digits[j]) {
                     swap(digits, i, j);
-                    ans = Math.max(ans, assemble(digits, k));
+                    int newNum = digitsToInt(digits, k);
+                    if (max < newNum)
+                        max = newNum;
                     swap(digits, i, j);
                 }
             }
         }
-
-        return ans;
+        return max;
     }
 }

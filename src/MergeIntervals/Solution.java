@@ -20,13 +20,13 @@ class Solution {
             return o1.start < o2.start ? -1 : 1;
         });
 
-        List<Interval> ret = new ArrayList<>();
+        List<Interval> merged = new ArrayList<>();
         int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
 
         for (Interval interval : intervals) {
             if (interval.start > end) {
                 if (start < Integer.MAX_VALUE) {
-                    ret.add(new Interval(start, end));
+                    merged.add(new Interval(start, end));
                 }
                 start = interval.start;
                 end = interval.end;
@@ -38,10 +38,10 @@ class Solution {
             }
         }
         if (start < Integer.MAX_VALUE) {
-            ret.add(new Interval(start, end));
+            merged.add(new Interval(start, end));
         }
 
-        return ret;
+        return merged;
     }
 }
 

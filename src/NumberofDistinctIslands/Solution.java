@@ -38,7 +38,7 @@ class Solution {
         }
     }
 
-    private boolean checkIsSame(int lx, int ly, int rx, int ry, int[][] grid, int numRow, int numCol) {
+    private boolean sameIslands(int lx, int ly, int rx, int ry, int[][] grid, int numRow, int numCol) {
         if (grid[lx][ly] != grid[rx][ry])
             return false;
         if (grid[lx][ly] == 0)
@@ -49,7 +49,7 @@ class Solution {
             int dlx = lx + dx[i], dly = ly + dy[i];
             int drx = rx + dx[i], dry = ry + dy[i];
             if (insideGrid(dlx, dly, numRow, numCol) && insideGrid(drx, dry, numRow, numCol)) {
-                if (!checkIsSame(dlx, dly, drx, dry, grid, numRow, numCol)) {
+                if (!sameIslands(dlx, dly, drx, dry, grid, numRow, numCol)) {
                     return false;
                 }
             } else if (insideGrid(dlx, dly, numRow, numCol) && grid[dlx][dly] != 0) {
@@ -62,7 +62,7 @@ class Solution {
     }
 
     private boolean isSame(Island a, Island b, int[][] grid, int numRow, int numCol) {
-        return a.size == b.size && checkIsSame(a.x, a.y, b.x, b.y, grid, numRow, numCol);
+        return a.size == b.size && sameIslands(a.x, a.y, b.x, b.y, grid, numRow, numCol);
     }
 
     private List<Island> findIslands(int[][] grid, int numRow, int numCol) {
