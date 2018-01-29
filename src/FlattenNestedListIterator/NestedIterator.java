@@ -57,10 +57,9 @@ public class NestedIterator implements Iterator<Integer> {
             } else if (nested.getList() != null) {
                 // push left elements of iterator and new list to stack
                 stack.push(iterator);
-                stack.push(nested.getList().iterator());
-            }
-            // reset iterator for next use
-            iterator = null;
+                // set iterator to nested iterator
+                iterator = nested.getList().iterator();
+            } // else iterator continue
         }
     }
 }
