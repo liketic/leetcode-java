@@ -4,12 +4,12 @@ package DeleteNodeinaBST;
 /**
  * Given a root node reference of a BST and a key, delete the node with the given key in the BST.
  * Return the root node reference (possibly updated) of the BST.
- *
+ * <p>
  * Basically, the deletion can be divided into two stages:
- *
+ * <p>
  * Search for a node to remove. If the node is found, delete the node. Note: Time complexity should
  * be O(height of tree).
- *
+ * <p>
  * Example:
  * <pre>
  * root = [5,3,6,2,4,null,7]
@@ -22,7 +22,7 @@ package DeleteNodeinaBST;
  * 2   4   7
  * </pre>
  * Given key to delete is 3. So we find the node with value 3 and delete it.
- *
+ * <p>
  * One valid answer is [5,4,6,2,null,null,7], shown in the following BST.
  * <pre>
  * 5
@@ -63,7 +63,8 @@ class Solution {
     private TreeNode deleteOneNode(TreeNode root, TreeNode p, TreeNode node) {
         if (node.left == null || node.right == null) {
             TreeNode n = node.left == null ? node.right : node.left;
-            if (node == root) return n;
+            if (node == root)
+                return n;
             replace(p, node, n);
         } else {
             TreeNode np = node;
@@ -96,8 +97,7 @@ class Solution {
     private TreeNode deleteNode(TreeNode root, TreeNode p, TreeNode node, int key) {
         if (node == null) {
             return root;
-        }
-        if (node.val == key) {
+        } else if (node.val == key) {
             return deleteOneNode(root, p, node);
         } else if (node.val > key) {
             return deleteNode(root, node, node.left, key);
