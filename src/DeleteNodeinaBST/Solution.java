@@ -52,53 +52,48 @@ class TreeNode {
 
 class Solution {
 
-    private void replace(TreeNode parent, TreeNode node, TreeNode newNode) {
-        if (parent.left == node) {
+    private TreeNode fixup(TreeNode root, TreeNode parent, TreeNode toRemove, TreeNode newNode) {
+        if (parent == null)
+            return newNode;
+        if (parent.left == toRemove)
             parent.left = newNode;
-        } else {
+        else
             parent.right = newNode;
-        }
-    }
-
-    private TreeNode deleteOneNode(TreeNode root, TreeNode p, TreeNode node) {
-        if (node.left == null || node.right == null) {
-            TreeNode n = node.left == null ? node.right : node.left;
-            if (node == root)
-                return n;
-            replace(p, node, n);
-        } else {
-            TreeNode np = node;
-            TreeNode n = node.left;
-            while (n.right != null) {
-                np = n;
-                n = n.right;
-            }
-            if (np == node) {
-                n.right = node.right;
-                if (p != null) {
-                    replace(p, node, n);
-                } else {
-                    root = n;
-                }
-            } else {
-                np.right = n.left;
-                n.left = node.left;
-                n.right = node.right;
-                if (p != null) {
-                    replace(p, node, n);
-                } else {
-                    root = n;
-                }
-            }
-        }
         return root;
     }
 
-    private TreeNode deleteNode(TreeNode root, TreeNode p, TreeNode node, int key) {
+    private TreeNode deleteNode(TreeNode root, TreeNode parent, TreeNode node) {
+        if (node.left == null) {
+            return fixup(root, parent, node, node.right);
+        } else if (node.right == null) {
+            return fixup(root, parent, node, node.left);
+        } else {
+            // Both node.left and node.right are not null
+            TreeNode maxOfLeft = node.left;
+            TreeNode ptr = node;
+            // Find the rightest node in left child tree and its parent
+            while (maxOfLeft.right != null) {
+                ptr = maxOfLeft;
+                maxOfLeft = maxOfLeft.right;
+            }
+            if (ptr == node) {
+                // The max node is the left child of node which means its left 
+                // child node has no right child node.
+                maxOfLeft.right = node.right;
+            } else {
+                ptr.right = maxOfLeft.left;
+                maxOfLeft.left = node.left;
+                maxOfLeft.right = node.right;
+            }
+            return fixup(root, parent, node, maxOfLeft);
+        }
+    }
+
+    private TreeNode deleteNode(TreeNode root, TreeNode parent, TreeNode node, int key) {
         if (node == null) {
             return root;
         } else if (node.val == key) {
-            return deleteOneNode(root, p, node);
+            return deleteNode(root, parent, node);
         } else if (node.val > key) {
             return deleteNode(root, node, node.left, key);
         } else {
